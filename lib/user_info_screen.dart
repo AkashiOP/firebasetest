@@ -65,8 +65,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(),
-              _user.photoURL != null
-                  ? ClipOval(
+              if (_user.photoURL != null) ClipOval(
                       child: Material(
                         color: Colors.grey,
                         child: Image.network(
@@ -74,8 +73,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                           fit: BoxFit.fitHeight,
                         ),
                       ),
-                    )
-                  : ClipOval(
+                    ) else ClipOval(
                       child: Material(
                         color: Colors.grey,
                         child: Padding(
@@ -97,13 +95,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               SizedBox(height: 8.0),
-              Text(
-                _user.displayName!,
-                style: TextStyle(
-                  color: Colors.amberAccent,
-                  fontSize: 26,
-                ),
-              ),
+              
               SizedBox(height: 8.0),
               Text(
                 '( ${_user.email!} )',
